@@ -39,21 +39,6 @@ router.get("/bestsellers", async (req, res) => {
   }
 });
 
-// signup+login+user
-// router.get("/search/:book", async (req, res) => {
-//   var apiBookTitle = `https://www.googleapis.com/books/v1/volumes?q=batman`;
-
-//   const response = await fetch(apiBookTitle, {
-//     method: "GET",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   });
-
-//   const data = await response.json();
-
-//   console.log(data);
-// });
 
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
