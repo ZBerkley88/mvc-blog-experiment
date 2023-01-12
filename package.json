@@ -1,32 +1,30 @@
 {
-  "name": "project-2-restapi-group-4",
+  "name": "mvc-blog-experiment",
   "version": "1.0.0",
-  "description": "Project-2-restAPI-group-4",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/smfitz/Project-2-restAPI-group-4.git"
+    "url": "git+https://github.com/ZBerkley88/mvc-blog-experiment.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Zachary Berkley",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/smfitz/Project-2-restAPI-group-4/issues"
+    "url": "https://github.com/ZBerkley88/mvc-blog-experiment/issues"
   },
-  "homepage": "https://github.com/smfitz/Project-2-restAPI-group-4#readme",
+  "homepage": "https://github.com/ZBerkley88/mvc-blog-experiment#readme",
   "dependencies": {
-    "bcrypt": "^5.1.0",
     "connect-session-sequelize": "^7.1.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
     "mysql2": "^2.3.3",
-    "nodemon": "^2.0.20",
+    "path": "^0.12.7",
     "sequelize": "^6.28.0"
   }
 }
