@@ -7,6 +7,7 @@ class Review extends Model {
 }
 
 Review.init(
+  // first argument: data required to create a user
   {
     id: {
       type: DataTypes.INTEGER,
@@ -31,8 +32,10 @@ Review.init(
         model: "user",
         key: "id",
       },
-    }
+    },
   },
+  // second argument: object that contains options for how we interact with the database
+
   {
     sequelize,
     timestamps: true,
