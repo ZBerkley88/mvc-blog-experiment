@@ -36,10 +36,6 @@ app.use(session(sessionOptions));
 app.use(express.json());
 app.use(routes);
 
-// app.get('/', (req, res) => {
-//     res.send("The server is live");
-// });
-
 sequelize.sync({ force: false }).then(() => {
   app.listen(port);
   console.log(`Server listening on port ${port}`);
