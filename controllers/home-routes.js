@@ -1,9 +1,8 @@
 const router = require("express").Router();
-const { User } = require("../models");
 const withAuth = require("../utils/auth");
 require("dotenv").config();
-// homepage route
 
+// homepage route
 router.get("/", async (req, res) => {
   try {
     res.render("homepage");
@@ -12,34 +11,16 @@ router.get("/", async (req, res) => {
   }
 });
 
-// search route
-router.get("/search", async (req, res) => {
+// dashboard route
+router.get("/dashboard", async (req, res) => {
   try {
-    res.render("search");
+    res.render("dashboard");
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// book detail route
-router.get("/review/:isbn", async (req, res) => {
-  try {
-    res.render("review");
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// bestseller route
-router.get("/bestsellers", async (req, res) => {
-  try {
-    res.render("bestsellers");
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-
+// login route
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/");
@@ -47,6 +28,7 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+// signup route
 router.get("/signup", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/");

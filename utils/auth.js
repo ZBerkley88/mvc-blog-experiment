@@ -1,9 +1,10 @@
 const withAuth = (req, res, next) => {
-    if (req.session.logged_in) {
-        next();
+    if (!req.session.logged_in) {
+      res.redirect('/login');
     } else {
-        res.json({message:"Not logged in"});
+      next();
     }
-}
-
-module.exports = { withAuth };
+  };
+  
+  module.exports = withAuth;
+  

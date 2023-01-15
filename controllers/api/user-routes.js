@@ -141,7 +141,4 @@ router.post('/logout', async (req, res) => {
     res.json({ message: "Logged out" })
 })
 
-
-
-
 module.exports = router;
