@@ -4,9 +4,6 @@ console.log(pathArray);
 var pathIsbn = pathArray[2];
 console.log(pathIsbn);
 
-var bookIMG = document.querySelector('.book-image');
-// var bookDesc = document.querySelector('.book-description');
-
 
 
 async function bookInfoFetch(event) {

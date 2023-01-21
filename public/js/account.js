@@ -13,11 +13,10 @@ function saveAccount(){
     console.log("connected");
     });
     
-    var userName = document.getElementById("username-input").value;
     var psw = document.getElementById("password-input").value;
     var email = document.getElementById("email-input").value;
     
-    var sql = "INSERT INTO profile (UserName, UserPassword, Email) VALUES ('"+userName+ "','"+psw+"', '"+email+"')";
+    var sql = "INSERT INTO profile (UserPassword, Email) VALUES ('"+psw+"', '"+email+"')";
     con.query(sql, function (err, result) {
         if (err) {
             throw err;

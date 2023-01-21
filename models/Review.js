@@ -15,10 +15,6 @@ Review.init(
       allowNull: false,
       autoIncrement: true,
     },
-    isbn: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
     title: {
       type: DataTypes.STRING,
       allowNull: false,

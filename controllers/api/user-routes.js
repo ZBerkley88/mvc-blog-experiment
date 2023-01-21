@@ -38,22 +38,41 @@ router.post("/login", async (req, res) => {
 });
 
 // Create a new user
+// router.post('/', async (req, res) => {
+//     try {
+//         const userData = await User.create(req.body);
+//         req.session.save(() => {
+//             req.session.user_id = userData.id;
+//             req.session.logged_in = true;
+//             console.log(userData);
+
+//             res.json({ user: userData, message: "You are now logged in!" });
+            
+//         });
+//     }
+//     catch (err) {
+//         res.json(err)
+//     }
+// });
+
+// CREATE new user
 router.post('/', async (req, res) => {
     try {
-        const userData = await User.create(req.body);
-        req.session.save(() => {
-            req.session.user_id = userData.id;
-            req.session.logged_in = true;
-            console.log(userData);
-
-            res.json({ user: userData, message: "You are now logged in!" });
-            
-        });
+      const dbUserData = await User.create({
+        email: req.body.email,
+        password: req.body.password,
+      });
+  
+      req.session.save(() => {
+        req.session.loggedIn = true;
+  
+        res.status(200).json(dbUserData);
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
     }
-    catch (err) {
-        res.json(err)
-    }
-});
+  });
 
 // Get user by ID
 router.get('/:id', async (req, res) => {

@@ -1,4 +1,3 @@
-console.log("linked");
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
