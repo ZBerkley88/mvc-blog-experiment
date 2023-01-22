@@ -30,27 +30,23 @@
             <ul class="nav">
                 <li>
                     <a href="/">
-                        <i class="fa-solid fa-house"></i></i> Home
+                        <i class="fa-solid fa-house"></i>Home
                     </a>
-                </li>
                 <li>
                     <a href="/dashboard">
-                        <i class="fa-solid fa-blog"></i></i> Dashboard
+                        <i class="fa-solid fa-blog"></i> Dashboard
                     </a>
-                </li>
-                {{#if logged_in}}
-                <li>
+                {{!-- {{#if logged_in}} --}}
+                <li class="logout">
                     <a href="/logout">
                         <i class="fa-solid fa-user"></i> Log Out
                     </a>
-                </li>
-                {{else}}
+                {{!-- {{else}} --}}
                 <li>
                     <a href="/login">
                         <i class="fa-solid fa-user"></i> Log In
                     </a>
-                </li>
-                {{/if}}
+                {{!-- {{/if}} --}}
             </ul>
         </div>
 
@@ -61,9 +57,9 @@
 
 
         <script src="/js/index.js"></script>
-        {{#if logged_in}}
+        {{!-- {{#if logged_in}} --}}
         <script src="/js/logout.js"></script>
-        {{/if}}
+        {{!-- {{/if}} --}}
 </body>
 
 </html>

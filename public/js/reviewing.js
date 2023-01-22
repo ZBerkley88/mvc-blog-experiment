@@ -1,30 +1,29 @@
-console.log("linked");
-var pathArray = window.location.pathname.split( '/' );
-console.log(pathArray);
-var pathIsbn = pathArray[2];
-console.log(pathIsbn);
+// var pathArray = window.location.pathname.split( '/' );
+// console.log(pathArray);
+// var pathIsbn = pathArray[2];
+// console.log(pathIsbn);
 
 
 
-async function bookInfoFetch(event) {
-    const response = await fetch('/api/books/' + pathIsbn, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-    });
-    const data = await response.json();
-    console.log(data);
+// async function bookInfoFetch(event) {
+//     const response = await fetch('/api/books/' + pathIsbn, {
+//         method: 'GET',
+//         headers: { 'Content-Type': 'application/json' },
+//     });
+//     const data = await response.json();
+//     console.log(data);
 
-    appendBook(data);
-}
+//     appendBook(data);
+// }
 
-bookInfoFetch();
+// bookInfoFetch();
 
-var appendBook = function (data) {
-    console.log('appending book data');
-    console.log("DATA", data);
+// var appendBook = function (data) {
+//     console.log('appending book data');
+//     console.log("DATA", data);
 
-    var imageLink = data.image;
+//     var imageLink = data.image;
 
-    bookIMG.setAttribute("src", imageLink);
+//     bookIMG.setAttribute("src", imageLink);
 
-}
+// }

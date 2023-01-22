@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// dashboard route
+// dashboard page route
 router.get("/dashboard", async (req, res) => {
   try {
     res.render("dashboard");
@@ -19,7 +19,7 @@ router.get("/dashboard", async (req, res) => {
   }
 });
 
-// login route
+// login page route
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/");
@@ -27,7 +27,7 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-// signup route
+// signup page route
 router.get("/signup", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/");

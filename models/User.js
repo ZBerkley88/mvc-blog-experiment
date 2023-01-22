@@ -18,6 +18,10 @@ User.init(
       allowNull: false,
       autoIncrement: true,
     },
+    name: {
+      type: DataTypes.STRING,
+      defaultValue: false,
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
