@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User, Post } = require("../../models");
 
-// User Login
+// LOGIN
 router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -9,7 +9,7 @@ router.post("/login", async (req, res) => {
     if (!userData) {
       res
         .status(400)
-        .json({ message: "Incorrect login credentials, please try again." });
+        .json({ message: "Invalid login credentials, please try again." });
       return;
     }
 
@@ -19,7 +19,7 @@ router.post("/login", async (req, res) => {
       console.log("wrong password");
       res
         .status(400)
-        .json({ message: "Incorrect login credentials, please try again." });
+        .json({ message: "Invalid login credentials, please try again." });
       return;
     }
 
@@ -35,7 +35,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// CREATE new user
+// CREATE NEW USER
 router.post("/", async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -52,7 +52,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// GET user by ID
+// GET USER BY ID
 router.get("/:id", async (req, res) => {
   try {
     const result = await User.findByPk(req.params.id, {
@@ -72,7 +72,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// GET all users
+// GET ALL USERS
 router.get("/", async (req, res) => {
   try {
     const result = await User.findAll({
@@ -89,7 +89,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// UPDATE user
+// UPDATE USER
 router.put("/:id", async (req, res) => {
   try {
     const result = await User.update(req.body, {
@@ -106,7 +106,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// DELETE user
+// DELETE USER
 router.delete("/:id", async (req, res) => {
   try {
     const result = await User.destroy({
@@ -123,12 +123,12 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-// User Logout
+// LOGOUT
 router.post("/logout", async (req, res) => {
   req.session.logged_in = false;
-  console.log(`${req.session.logged_in}`);
   req.session.destroy();
-  res.json({ message: "Logged out" });
+  res.json({ message: "You are now logged out." });
+  res.render("homepage");
 });
 
 module.exports = router;

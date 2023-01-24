@@ -36,17 +36,17 @@
                     <a href="/dashboard">
                         <i class="fa-solid fa-blog"></i> Dashboard
                     </a>
-                {{!-- {{#if logged_in}} --}}
+                {{#if loggedIn}}
                 <li class="logout">
                     <a href="/logout">
                         <i class="fa-solid fa-user"></i> Log Out
                     </a>
-                {{!-- {{else}} --}}
+                {{else}}
                 <li>
                     <a href="/login">
                         <i class="fa-solid fa-user"></i> Log In
                     </a>
-                {{!-- {{/if}} --}}
+                {{/if}}
             </ul>
         </div>
 
@@ -57,7 +57,7 @@
 
 
         <script src="/js/index.js"></script>
-        {{#if logged_in}}
+        {{#if loggedIn}}
         <script src="/js/logout.js"></script>
         {{/if}}
 </body>
