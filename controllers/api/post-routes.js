@@ -1,55 +1,55 @@
 const router = require("express").Router();
-const { Review } = require("../../models");
+const { Post } = require("../../models");
 const { withAuth } = require("../../utils/auth");
 
-// Post a review
+// Post a message
 router.post("/", withAuth, async (req, res) => {
   try {
-    const newReview = await Review.create(req.body);
-    res.json(newReview);
+    const newPost = await Post.create(req.body);
+    res.json(newPost);
   } catch (err) {
     res.json(err);
   }
 });
 
-// Get Review by ID
+// Get Post by ID
 router.get("/:id", async (req, res) => {
   try {
-    const result = await Review.findByPk(req.params.id);
+    const result = await Post.findByPk(req.params.id);
     if (result) {
-      const review = result.get({ plain: true });
+      const post = result.get({ plain: true });
       res.status(200).json(review);
     } else {
-      res.status(404).json({ error: "Review not found" });
+      res.status(404).json({ error: "Post not found" });
     }
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// Get all Reviews
+// Get all Posts
 router.get("/", async (req, res) => {
   try {
-    const result = await Review.findAll();
-    const reviews = result.map((review) => {
-      return review.get({ plain: true });
+    const result = await Post.findAll();
+    const posts = result.map((post) => {
+      return post.get({ plain: true });
     });
-    res.status(200).json(reviews);
+    res.status(200).json(posts);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// Update review
+// Update post
 router.put("/:id", withAuth, async (req, res) => {
   try {
-    const result = await Review.update(req.body, {
+    const result = await Post.update(req.body, {
       where: {
         id: req.params.id,
       },
     });
     if (!result) {
-      res.status(404).json({ message: "Review not found" });
+      res.status(404).json({ message: "Post not found" });
     }
     res.status(200).json(result);
   } catch (err) {
@@ -57,16 +57,16 @@ router.put("/:id", withAuth, async (req, res) => {
   }
 });
 
-// Delete a review
+// Delete a post
 router.delete("/:id", withAuth, async (req, res) => {
   try {
-    const result = await Review.destroy({
+    const result = await Post.destroy({
       where: {
         id: req.params.id,
       },
     });
     if (!result) {
-      res.status(404).json({ message: "Review not found" });
+      res.status(404).json({ message: "Post not found" });
     }
     res.status(200).json(result);
   } catch (err) {

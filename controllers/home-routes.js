@@ -1,23 +1,46 @@
 const router = require("express").Router();
+const { User, Post, Comment } = require("../models")
+
 require("dotenv").config();
 
 // homepage route
-router.get("/", async (req, res) => {
-  try {
-    res.render("homepage");
-  } catch (err) {
-    res.status(500).json(err);
-  }
+router.get('/', (req, res) => {
+  Post.findAll({
+    attributes: [
+      'id',
+      'title',
+      'post_body',
+      'created_at',
+    ],
+    order: [['created_at', 'DESC']],
+    include: [
+      {
+        model: User,
+        attributes: ['email']
+      },
+      {
+        model: Comment,
+        attributes: ['id', 'comment_body', 'user_id', 'post_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['email']
+        }
+      }
+    ]
+  })
+    .then(dbPostData => {
+      const posts = dbPostData.map(post => post.get({ plain: true }));
+      res.render('homepage', {
+        posts,
+        logged_in: req.session.logged_in
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
-// dashboard page route
-router.get("/dashboard", async (req, res) => {
-  try {
-    res.render("dashboard");
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 // login page route
 router.get("/login", (req, res) => {

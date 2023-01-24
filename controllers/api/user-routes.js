@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const { User, Review } = require("../../models");
-const { rawAttributes } = require("../../models/User");
+const { User, Post } = require("../../models");
 
+// User Login
 router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -9,7 +9,7 @@ router.post("/login", async (req, res) => {
     if (!userData) {
       res
         .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
+        .json({ message: "Incorrect login credentials, please try again." });
       return;
     }
 
@@ -19,8 +19,7 @@ router.post("/login", async (req, res) => {
       console.log("wrong password");
       res
         .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
-
+        .json({ message: "Incorrect login credentials, please try again." });
       return;
     }
 
@@ -29,7 +28,7 @@ router.post("/login", async (req, res) => {
       req.session.logged_in = true;
       console.log(userData, `logged in: ${req.session.logged_in}`);
 
-      res.json({ user: userData, message: "You are now logged in!" });
+      res.json({ user: userData, message: "You are logged in!" });
     });
   } catch (err) {
     res.status(400).json(err);
@@ -39,14 +38,13 @@ router.post("/login", async (req, res) => {
 // CREATE new user
 router.post("/", async (req, res) => {
   try {
-    const newUserData = await User.create(req.body);
+    const userData = await User.create(req.body);
 
     req.session.save(() => {
-      req.session.user_id = newUserData.id;
+      req.session.user_id = userData.id;
       req.session.logged_in = true;
 
-
-      res.json({ user: newUserData, message: "You are now logged in!" });
+      res.json({ user: userData, message: "You are logged in!" });
     });
   } catch (err) {
     console.log(err);
@@ -54,14 +52,14 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Get user by ID
+// GET user by ID
 router.get("/:id", async (req, res) => {
   try {
     const result = await User.findByPk(req.params.id, {
       attributes: {
         exclude: ["password"],
       },
-      include: [{ model: Review }],
+      include: [{ model: Post }],
     });
     if (result) {
       const user = result.get({ plain: true });
@@ -74,7 +72,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// Get all users
+// GET all users
 router.get("/", async (req, res) => {
   try {
     const result = await User.findAll({
@@ -91,7 +89,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Update user
+// UPDATE user
 router.put("/:id", async (req, res) => {
   try {
     const result = await User.update(req.body, {
@@ -108,7 +106,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// Delete user
+// DELETE user
 router.delete("/:id", async (req, res) => {
   try {
     const result = await User.destroy({
@@ -130,7 +128,6 @@ router.post("/logout", async (req, res) => {
   req.session.logged_in = false;
   console.log(`${req.session.logged_in}`);
   req.session.destroy();
-  console.log("goodbye");
   res.json({ message: "Logged out" });
 });
 

@@ -2,12 +2,12 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Review extends Model {
+class Comment extends Model {
   // extra methods will go here
 }
 
-Review.init(
-  // first argument: data required to create a user
+Comment.init(
+  // first argument: data required to create a comment
   {
     id: {
       type: DataTypes.INTEGER,
@@ -15,30 +15,34 @@ Review.init(
       allowNull: false,
       autoIncrement: true,
     },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    text: {
+    comment_body: {
       type: DataTypes.STRING,
     },
     user_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: "user",
         key: "id",
       },
     },
+    post_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "post",
+        key: "id",
+      },
+    },
   },
   // second argument: object that contains options for how we interact with the database
-
   {
     sequelize,
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: "review",
+    modelName: "comment",
   }
 );
 
-module.exports = Review;
+module.exports = Comment;
