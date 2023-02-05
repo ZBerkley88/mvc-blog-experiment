@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Post, User, Comment } = require("../models");
 const { withAuth } = require("../utils/auth");
 
+// GET all posts on the homepage
 router.get("/", withAuth, (req, res) => {
   if (!req.session.logged_in) {
     res.redirect("/");

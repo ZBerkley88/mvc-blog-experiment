@@ -26,12 +26,12 @@ WHEN I revisit the site at a later time and choose to sign in
 THEN I am prompted to enter my username and password
 
 
-WHEN I am signed in to the site
-THEN I see navigation links for the homepage, the dashboard, and the option to log out
+<!-- WHEN I am signed in to the site
+THEN I see navigation links for the homepage, the dashboard, and the option to log out -->
 
 
-WHEN I click on the homepage option in the navigation
-THEN I am taken to the homepage and presented with existing blog posts that include the post title and the date created
+<!-- WHEN I click on the homepage option in the navigation
+THEN I am taken to the homepage and presented with existing blog posts that include the post title and the date created -->
 
 
 WHEN I click on an existing blog post
