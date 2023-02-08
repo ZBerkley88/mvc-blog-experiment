@@ -10,7 +10,7 @@
         {{#if logged_in}}
         <form class="form-inline comment-form" role="form">
             <div class="form-group">
-                <textarea type="text" name="comment-body" rows="5" cols="150" placeholder="Your comment"></textarea>
+                <textarea id="your-comment" type="text" name="comment-body" rows="5" cols="150" placeholder="Your comment"></textarea>
             </div>
             <div class="form-group">
                 <button class="btn btn-default" type="submit">Post</button>
@@ -19,3 +19,5 @@
         {{/if}}
     </div>
 </div>
+
+<script src="/js/comment.js"></script>
