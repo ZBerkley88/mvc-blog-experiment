@@ -195,3 +195,26 @@ form p a {
 .section {
   margin-top: 8px;
 }
+
+
+/* SINGLE POST */
+
+.commentBtn {
+  width: 100px;
+  margin-top: 5px;
+  color: var(--primary);
+  background-color: var(--not-so-dark);
+  border: 0px;
+}
+
+
+/* COMMENTS */
+
+header {
+  color: var(--not-so-dark);
+  font-size: 20px;
+}
+
+.commentText p {
+  color: var(--secondary);
+}
