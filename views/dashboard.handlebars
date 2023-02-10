@@ -3,14 +3,20 @@
 
 		{{!-- posts --}}
 		<div class="section col-md-8">
-			<ul class="post-list">
+			<ul class="recent-posts">
 				<h2>Recent Posts</h2>
-                {{#if posts.length}}
                 {{#each posts as |post|}}
-                        {{> post-partial post}}
-                        {{/each}}
-                        {{/if}}
+					<li>
+						<div class="post">
+								{{> post-partial post}}
+								<button class="edit-post btn-default" type="button">
+									Edit Post
+										<a href="/dashboard/edit/{{id}}"></a>
+								</button> 
 
+						</div>
+					</li>
+				{{/each}}
 			</ul>
 		</div>
 

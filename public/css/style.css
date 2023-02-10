@@ -199,14 +199,33 @@ form p a {
 
 /* SINGLE POST */
 
-.commentBtn {
-  width: 100px;
+.commentBtn, .edit-post {
+  width: 125px;
+  height: 30px;
   margin-top: 5px;
   color: var(--primary);
   background-color: var(--not-so-dark);
+  /* How can I get the border to match the shape defined below? */
   border: 0px;
+  position: relative;
 }
 
+.commentBtn::after, .edit-post::after {
+  width: 0px;
+  height: 0px;
+  background: var(--primary);
+  content: '';
+  position: absolute;
+  bottom: 0;
+}
+
+.commentBtn::after, .edit-post::after {
+  right: 0;
+  border-top: 6px solid var(--not-so-dark);
+  border-right: 6px solid var(--primary);
+  border-left: 6px solid var(--not-so-dark);
+  border-bottom: 6px solid var(--primary)
+}
 
 /* COMMENTS */
 

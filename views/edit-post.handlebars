@@ -7,13 +7,13 @@
 
         {{#if logged_in}}
         <form class="comment-form" role="form">
-                <textarea id="new-comment" type="text" name="comment-body" rows="3" cols="70" placeholder="Type your comment here"></textarea>
+                <textarea id="edited-post" type="text" name="edit-body" rows="3" cols="70" placeholder=""></textarea>
             <div class="button-container">
-                <button class="commentBtn btn-default" type="submit">Comment</button>
+                <button class="editBtn btn-default" type="submit">Comment</button>
             </div>
         </form>
         {{/if}}
     </div>
 </div>
 
-<script src="/js/comment.js"></script>
+{{!-- <script src="/js/comment.js"></script> --}}
