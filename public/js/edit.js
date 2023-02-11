@@ -1,13 +1,11 @@
-const editedPostHandler = async (event) => {
+const editPostHander = async (event) => {
   event.preventDefault();
 
   const post_body = document.querySelector("#edited-post").value.trim();
-  console.log("Post body", post_body)
 
   const post_id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
-  console.log("POST ID", post_id)
 
   const response = await fetch(`/api/posts/update/${post_id}`, {
     method: "PUT",
@@ -26,4 +24,4 @@ const editedPostHandler = async (event) => {
 
 document
   .querySelector(".edit-form")
-  .addEventListener("submit", editedPostHandler);
+  .addEventListener("submit", editPostHander);
