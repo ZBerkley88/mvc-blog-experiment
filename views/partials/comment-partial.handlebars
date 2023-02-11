@@ -1,16 +1,14 @@
-  <header>
-    <label>Comments</label>
-  </header>     
-    <div class="actionBox">
-        <ul class="commentList">
-          {{#each this}}
-            <li>
-                <div class="commentText">
-                    <p class="">{{comment_body}}</p> <span class="date sub-text">@{{user.email}} on {{format_date created_at}}</span>
-
-                </div>
-            </li>
-          {{/each}}
-        </ul>
-    </div>
+<div class="actionBox">
+  <ul class="commentList">
+    {{#each this}}
+      <i class="comment-icon fa-regular fa-comments"></i>
+      <li>
+        <div class="commentText">
+          <span class="date sub-text">{{user.email}}
+            commented: </span>
+          <p class="">{{comment_body}}</p>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
 </div>

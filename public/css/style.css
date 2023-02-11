@@ -216,7 +216,6 @@ a::hover {
 .post-container {
   padding-top: 10px;
   margin-left: 10px;
-  margin-bottom: 55px;
 }
 
 .post-heading {
@@ -233,7 +232,6 @@ a::hover {
 
 .post-body {
   width: 50%;
-  /* margin-top: 10px; */
   background: var(--grey);  
 }
 
@@ -243,9 +241,7 @@ a::hover {
   margin-left: 5px;
 }
 
-
-
-.commentBtn, .edit-post, .editBtn {
+.commentBtn, .edit-post, .editBtn  {
   width: 125px;
   height: 30px;
   margin-top: 5px;
@@ -310,4 +306,8 @@ header {
 
 .commentText p {
   color: var(--secondary);
+}
+
+comment-icon {
+
 }
