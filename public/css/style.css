@@ -1,9 +1,10 @@
 /* Universal Elements */
 :root {
-  --dark: #1e1e1e;
+  --dark: #1E1E1E;
   --not-so-dark: #3A3A3A;
   --primary: #FFFFFF;
   --secondary: #564787;
+  --grey: #e3e3e3;
 
   font-family: "Montserrat";
 }
@@ -29,6 +30,10 @@ body {
   width: 100%;
   position: relative;
   margin-right: 0;
+}
+
+li {
+  list-style: none;
 }
 
 /* Sidebar Styles */
@@ -198,6 +203,45 @@ form p a {
 
 
 /* SINGLE POST */
+
+a {
+  text-decoration: none;
+}
+
+a::hover {
+  text-decoration: none;
+}
+
+.post-container {
+  padding-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 55px;
+}
+
+.post-heading {
+  padding: 5px;
+  width: 50%;
+  background-color: var(--not-so-dark);
+  color: var(--primary);
+}
+
+
+.post-heading .date {
+  float: right;
+}
+
+.post-body {
+  width: 50%;
+  /* margin-top: 10px; */
+  background: var(--grey);  
+}
+
+.post-body p {
+  padding-top: 10px;
+  margin-left: 5px;
+}
+
+
 
 .commentBtn, .edit-post {
   width: 125px;

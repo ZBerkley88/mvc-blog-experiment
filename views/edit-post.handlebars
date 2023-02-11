@@ -6,14 +6,16 @@
         {{> comment-partial post.comments}}
 
         {{#if logged_in}}
-        <form class="comment-form" role="form">
+        <form class="edit-form" role="form">
                 <textarea id="edited-post" type="text" name="edit-body" rows="3" cols="70" placeholder=""></textarea>
             <div class="button-container">
-                <button class="editBtn btn-default" type="submit">Comment</button>
+                <button class="editBtn btn-default" type="submit">Edit</button>
+                <button class="deleteBtn btn-default" type="submit">Delete</button>
             </div>
         </form>
         {{/if}}
     </div>
 </div>
 
-{{!-- <script src="/js/comment.js"></script> --}}
+{{!-- <script src="/js/edit.js"></script>
+<script src="/js/delete.js"></script> --}}

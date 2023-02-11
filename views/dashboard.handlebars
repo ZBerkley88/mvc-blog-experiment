@@ -9,11 +9,11 @@
 					<li>
 						<div class="post">
 								{{> post-partial post}}
-								<button class="edit-post btn-default" type="button">
-									Edit Post
-										<a href="/dashboard/edit/{{id}}"></a>
-								</button> 
-
+								<a href="/dashboard/edit/{{id}}">
+									<button class="edit-post btn-default" type="button">
+										Edit Post
+									</button> 
+								</a>
 						</div>
 					</li>
 				{{/each}}

@@ -1,7 +1,7 @@
 const newCommentHandler = async (event) => {
   event.preventDefault();
 
-  const comment_body = document.querySelector("#your-comment").value.trim();
+  const comment_body = document.querySelector("#new-comment").value.trim();
   console.log("comment_body", comment_body);
 
   var getPostId = window.location.pathname.split("/");
