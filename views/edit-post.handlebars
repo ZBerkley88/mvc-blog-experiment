@@ -1,21 +1,17 @@
 <div class="container">
         {{> post-partial post }}
 </div>
-<div class="container">
-    <div class="col-md-6">
-        {{> comment-partial post.comments}}
 
-        {{#if logged_in}}
-        <form class="edit-form" role="form">
-                <textarea id="edited-post" type="text" name="edit-body" rows="3" cols="70" placeholder=""></textarea>
-            <div class="button-container">
-                <button class="editBtn btn-default" type="submit">Edit</button>
-                <button class="deleteBtn btn-default" type="submit">Delete</button>
-            </div>
-        </form>
-        {{/if}}
-    </div>
-</div>
+    {{#if logged_in}}
+    <form class="edit-form col-md-6" role="form">
+            <textarea id="edited-post" type="text" name="edit-body" rows="3" cols="70" placeholder=""></textarea>
+        <div class="button-container">
+            <button class="editBtn btn-default" type="submit">Edit</button>
+            <button class="deleteBtn btn-default" type="button">Delete</button>
+        </div>
+    </form>
+    {{/if}}   
 
-{{!-- <script src="/js/edit.js"></script>
-<script src="/js/delete.js"></script> --}}
+
+<script src="/js/edit.js"></script>
+{{!-- <script src="/js/delete.js"></script> --}}

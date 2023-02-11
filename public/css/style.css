@@ -4,7 +4,8 @@
   --not-so-dark: #3A3A3A;
   --primary: #FFFFFF;
   --secondary: #564787;
-  --grey: #e3e3e3;
+  --grey: #E3E3E3;
+  --red: #fc5757;
 
   font-family: "Montserrat";
 }
@@ -238,12 +239,13 @@ a::hover {
 
 .post-body p {
   padding-top: 10px;
+  padding-bottom: 10px;
   margin-left: 5px;
 }
 
 
 
-.commentBtn, .edit-post {
+.commentBtn, .edit-post, .editBtn {
   width: 125px;
   height: 30px;
   margin-top: 5px;
@@ -254,7 +256,7 @@ a::hover {
   position: relative;
 }
 
-.commentBtn::after, .edit-post::after {
+.commentBtn::after, .edit-post::after, .editBtn::after {
   width: 0px;
   height: 0px;
   background: var(--primary);
@@ -263,11 +265,39 @@ a::hover {
   bottom: 0;
 }
 
-.commentBtn::after, .edit-post::after {
+.commentBtn::after, .edit-post::after, .editBtn::after {
   right: 0;
   border-top: 6px solid var(--not-so-dark);
   border-right: 6px solid var(--primary);
   border-left: 6px solid var(--not-so-dark);
+  border-bottom: 6px solid var(--primary)
+}
+
+.deleteBtn {
+  width: 125px;
+  height: 30px;
+  margin-top: 5px;
+  margin-left: 20px;
+  color: var(--primary);
+  background-color: var(--red);
+  border: 0px;
+  position: relative;
+}
+
+.deleteBtn::after {
+  width: 0px;
+  height: 0px;
+  background: var(--primary);
+  content: '';
+  position: absolute;
+  bottom: 0;
+}
+
+.deleteBtn::after {
+  right: 0;
+  border-top: 6px solid var(--red);
+  border-right: 6px solid var(--primary);
+  border-left: 6px solid var(--red);
   border-bottom: 6px solid var(--primary)
 }
 
