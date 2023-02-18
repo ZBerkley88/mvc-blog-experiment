@@ -7,6 +7,9 @@
 
 This blog is built using the Model-View-Controller paradigm. Handlebars.js is used to dynamically render page elements. Express.js and Node.js are used for routing. Users are able to post b blog entries and comment on existing blog posts. Users are also able to update and delete posts from their dashboard. 
 
+## Deployed App Link
+![MVC Blog Thingy](https://mvc-blog-thingy.herokuapp.com/)
+
 ## Table of Contents
 
 - [Installation](#installation)
